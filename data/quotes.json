@@ -1,42 +1,52 @@
 [
     {
         "text": "The only way to do great work is to love what you do.",
-        "author": "Steve Jobs"
+        "author": "Steve Jobs",
+        "category": "inspirational"
     },
     {
         "text": "Life is what happens when you're busy making other plans.",
-        "author": "John Lennon"
+        "author": "John Lennon",
+        "category": "life"
     },
     {
         "text": "The future belongs to those who believe in the beauty of their dreams.",
-        "author": "Eleanor Roosevelt"
+        "author": "Eleanor Roosevelt",
+        "category": "inspirational"
     },
     {
         "text": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
-        "author": "Winston Churchill"
+        "author": "Winston Churchill",
+        "category": "motivational"
     },
     {
         "text": "In the end, it's not the years in your life that count. It's the life in your years.",
-        "author": "Abraham Lincoln"
+        "author": "Abraham Lincoln",
+        "category": "life"
     },
     {
         "text": "The greatest glory in living lies not in never falling, but in rising every time we fall.",
-        "author": "Nelson Mandela"
+        "author": "Nelson Mandela",
+        "category": "motivational"
     },
     {
         "text": "The way to get started is to quit talking and begin doing.",
-        "author": "Walt Disney"
+        "author": "Walt Disney",
+        "category": "inspirational"
     },
     {
         "text": "Your time is limited, don't waste it living someone else's life.",
-        "author": "Steve Jobs"
+        "author": "Steve Jobs",
+        "category": "life"
     },
     {
         "text": "If life were predictable it would cease to be life, and be without flavor.",
-        "author": "Eleanor Roosevelt"
+        "author": "Eleanor Roosevelt",
+        "category": "life"
     },
     {
         "text": "Spread love everywhere you go. Let no one ever come to you without leaving happier.",
-        "author": "Mother Teresa"
+        "author": "Mother Teresa",
+        "category": "inspirational"
     }
 ]
