@@ -3,7 +3,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
 }
@@ -18,7 +18,7 @@ body {
     width: 90%;
 }
 
-h1 {
+h1, h2 {
     color: #333;
 }
 
@@ -64,6 +64,33 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+#favorites-container {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.favorite-quote {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.favorite-quote p {
+    margin: 0.5rem 0;
+}
+
+.remove-favorite {
+    background-color: #dc3545;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+}
+
+.remove-favorite:hover {
+    background-color: #c82333;
 }
 
 @media (max-width: 480px) {

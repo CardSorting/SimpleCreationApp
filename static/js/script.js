@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const quoteCategory = document.getElementById('quote-category');
     const newQuoteBtn = document.getElementById('new-quote-btn');
     const categorySelect = document.getElementById('category-select');
+    const favoriteBtn = document.getElementById('favorite-btn');
+    const favoritesContainer = document.getElementById('favorites-container');
+
+    let currentQuote = null;
 
     function fetchRandomQuote() {
         const selectedCategory = categorySelect.value;
@@ -15,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (Array.isArray(data)) {
                     data = data[Math.floor(Math.random() * data.length)];
                 }
+                currentQuote = data;
                 quoteText.textContent = data.text;
                 quoteAuthor.textContent = `- ${data.author}`;
                 quoteCategory.textContent = `Category: ${data.category}`;
@@ -43,10 +48,71 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
+    function addToFavorites() {
+        if (currentQuote) {
+            fetch('/api/favorite', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(currentQuote),
+            })
+            .then(response => response.json())
+            .then(() => {
+                updateFavorites();
+            })
+            .catch(error => {
+                console.error('Error adding to favorites:', error);
+            });
+        }
+    }
+
+    function removeFromFavorites(quote) {
+        fetch('/api/favorite', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(quote),
+        })
+        .then(response => response.json())
+        .then(() => {
+            updateFavorites();
+        })
+        .catch(error => {
+            console.error('Error removing from favorites:', error);
+        });
+    }
+
+    function updateFavorites() {
+        fetch('/api/favorites')
+            .then(response => response.json())
+            .then(favorites => {
+                favoritesContainer.innerHTML = '';
+                favorites.forEach(quote => {
+                    const quoteElement = document.createElement('div');
+                    quoteElement.classList.add('favorite-quote');
+                    quoteElement.innerHTML = `
+                        <p>${quote.text}</p>
+                        <p>- ${quote.author}</p>
+                        <p>Category: ${quote.category}</p>
+                        <button class="remove-favorite">Remove</button>
+                    `;
+                    quoteElement.querySelector('.remove-favorite').addEventListener('click', () => removeFromFavorites(quote));
+                    favoritesContainer.appendChild(quoteElement);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching favorites:', error);
+            });
+    }
+
     newQuoteBtn.addEventListener('click', fetchRandomQuote);
     categorySelect.addEventListener('change', fetchRandomQuote);
+    favoriteBtn.addEventListener('click', addToFavorites);
 
     // Populate categories and fetch initial quote on page load
     populateCategories();
     fetchRandomQuote();
+    updateFavorites();
 });
