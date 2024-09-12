@@ -94,12 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 favoritesContainer.innerHTML = '';
                 favorites.forEach(quote => {
                     const quoteElement = document.createElement('div');
-                    quoteElement.classList.add('favorite-quote');
+                    quoteElement.classList.add('bg-gray-50', 'border', 'border-gray-200', 'rounded-md', 'p-4', 'mb-4');
                     quoteElement.innerHTML = `
-                        <p>${quote.text}</p>
-                        <p>- ${quote.author}</p>
-                        <p>Category: ${quote.category}</p>
-                        <button class="remove-favorite">Remove</button>
+                        <p class="text-gray-700 mb-2">${quote.text}</p>
+                        <p class="text-gray-600 italic text-sm">- ${quote.author}</p>
+                        <p class="text-gray-500 text-xs mt-1">Category: ${quote.category}</p>
+                        <button class="remove-favorite mt-2 bg-red-500 text-white py-1 px-2 rounded-md text-sm hover:bg-red-600 transition duration-300">Remove</button>
                     `;
                     quoteElement.querySelector('.remove-favorite').addEventListener('click', () => removeFromFavorites(quote));
                     favoritesContainer.appendChild(quoteElement);

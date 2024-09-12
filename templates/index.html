@@ -4,32 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Quote Generator</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-<body>
-    <div class="container">
-        <h1>Random Quote Generator</h1>
-        <div id="category-container">
-            <label for="category-select">Select Category:</label>
-            <select id="category-select">
+<body class="bg-gray-100 min-h-screen flex items-center justify-center px-4">
+    <div class="container max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
+        <h1 class="text-2xl font-bold text-center mb-6 text-gray-800">Random Quote Generator</h1>
+        <div class="mb-4">
+            <label for="category-select" class="block text-sm font-medium text-gray-700 mb-2">Select Category:</label>
+            <select id="category-select" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <option value="">All Categories</option>
             </select>
         </div>
-        <div id="quote-container">
-            <p id="quote-text"></p>
-            <p id="quote-author"></p>
-            <p id="quote-category"></p>
-            <div class="social-share">
-                <button id="share-twitter" class="share-btn"><i class="fab fa-twitter"></i> Tweet</button>
-                <button id="share-facebook" class="share-btn"><i class="fab fa-facebook-f"></i> Share</button>
-                <button id="share-linkedin" class="share-btn"><i class="fab fa-linkedin-in"></i> Post</button>
-            </div>
+        <div id="quote-container" class="mb-6">
+            <p id="quote-text" class="text-lg mb-2 text-gray-700"></p>
+            <p id="quote-author" class="text-sm italic text-gray-600"></p>
+            <p id="quote-category" class="text-xs text-gray-500 mt-1"></p>
         </div>
-        <button id="new-quote-btn">New Quote</button>
-        <button id="favorite-btn">Add to Favorites</button>
-        <h2>Favorite Quotes</h2>
-        <div id="favorites-container"></div>
+        <div class="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-2">
+            <button id="new-quote-btn" class="w-full sm:w-auto bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300">New Quote</button>
+            <button id="favorite-btn" class="w-full sm:w-auto bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 transition duration-300">Add to Favorites</button>
+        </div>
+        <div class="mt-4 flex justify-center space-x-2">
+            <button id="share-twitter" class="bg-blue-400 text-white py-1 px-3 rounded-md hover:bg-blue-500 transition duration-300"><i class="fab fa-twitter mr-1"></i> Tweet</button>
+            <button id="share-facebook" class="bg-blue-600 text-white py-1 px-3 rounded-md hover:bg-blue-700 transition duration-300"><i class="fab fa-facebook-f mr-1"></i> Share</button>
+            <button id="share-linkedin" class="bg-blue-700 text-white py-1 px-3 rounded-md hover:bg-blue-800 transition duration-300"><i class="fab fa-linkedin-in mr-1"></i> Post</button>
+        </div>
+        <h2 class="text-xl font-semibold mt-8 mb-4 text-gray-800">Favorite Quotes</h2>
+        <div id="favorites-container" class="space-y-4"></div>
     </div>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
