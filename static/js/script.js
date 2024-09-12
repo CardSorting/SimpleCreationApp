@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const categorySelect = document.getElementById('category-select');
     const favoriteBtn = document.getElementById('favorite-btn');
     const favoritesContainer = document.getElementById('favorites-container');
+    const shareTwiterBtn = document.getElementById('share-twitter');
+    const shareFacebookBtn = document.getElementById('share-facebook');
+    const shareLinkedInBtn = document.getElementById('share-linkedin');
 
     let currentQuote = null;
 
@@ -107,9 +110,37 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
+    function shareOnTwitter() {
+        if (currentQuote) {
+            const text = encodeURIComponent(`"${currentQuote.text}" - ${currentQuote.author}`);
+            const url = `https://twitter.com/intent/tweet?text=${text}`;
+            window.open(url, '_blank');
+        }
+    }
+
+    function shareOnFacebook() {
+        if (currentQuote) {
+            const url = encodeURIComponent(window.location.href);
+            const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            window.open(shareUrl, '_blank');
+        }
+    }
+
+    function shareOnLinkedIn() {
+        if (currentQuote) {
+            const text = encodeURIComponent(`"${currentQuote.text}" - ${currentQuote.author}`);
+            const url = encodeURIComponent(window.location.href);
+            const shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=Inspiring Quote&summary=${text}`;
+            window.open(shareUrl, '_blank');
+        }
+    }
+
     newQuoteBtn.addEventListener('click', fetchRandomQuote);
     categorySelect.addEventListener('change', fetchRandomQuote);
     favoriteBtn.addEventListener('click', addToFavorites);
+    shareTwiterBtn.addEventListener('click', shareOnTwitter);
+    shareFacebookBtn.addEventListener('click', shareOnFacebook);
+    shareLinkedInBtn.addEventListener('click', shareOnLinkedIn);
 
     // Populate categories and fetch initial quote on page load
     populateCategories();

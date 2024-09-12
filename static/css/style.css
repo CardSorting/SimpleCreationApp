@@ -93,6 +93,42 @@ button:hover {
     background-color: #c82333;
 }
 
+.social-share {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.share-btn {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+#share-twitter {
+    background-color: #1DA1F2;
+}
+
+#share-twitter:hover {
+    background-color: #1991da;
+}
+
+#share-facebook {
+    background-color: #4267B2;
+}
+
+#share-facebook:hover {
+    background-color: #365899;
+}
+
+#share-linkedin {
+    background-color: #0077B5;
+}
+
+#share-linkedin:hover {
+    background-color: #006396;
+}
+
 @media (max-width: 480px) {
     .container {
         padding: 1rem;
@@ -104,5 +140,13 @@ button:hover {
 
     #quote-text {
         font-size: 1rem;
+    }
+
+    .social-share {
+        flex-direction: column;
+    }
+
+    .share-btn {
+        margin: 0.5rem 0;
     }
 }

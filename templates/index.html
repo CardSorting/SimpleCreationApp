@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Quote Generator</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <div class="container">
@@ -19,6 +20,11 @@
             <p id="quote-text"></p>
             <p id="quote-author"></p>
             <p id="quote-category"></p>
+            <div class="social-share">
+                <button id="share-twitter" class="share-btn"><i class="fab fa-twitter"></i> Tweet</button>
+                <button id="share-facebook" class="share-btn"><i class="fab fa-facebook-f"></i> Share</button>
+                <button id="share-linkedin" class="share-btn"><i class="fab fa-linkedin-in"></i> Post</button>
+            </div>
         </div>
         <button id="new-quote-btn">New Quote</button>
         <button id="favorite-btn">Add to Favorites</button>
