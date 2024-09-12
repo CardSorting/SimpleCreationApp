@@ -1,8 +1,10 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, session
 import json
 import random
+import os
 
 app = Flask(__name__)
+app.secret_key = os.urandom(24)  # Set a secret key for session management
 
 # Load quotes from JSON file
 def load_quotes():
@@ -19,19 +21,23 @@ def index():
 @app.route('/api/random-quote')
 def random_quote():
     quotes = load_quotes()
-    quote = random.choice(quotes)
+    is_premium = session.get('is_premium', False)
+    available_quotes = [q for q in quotes if not q['premium'] or is_premium]
+    quote = random.choice(available_quotes)
     return jsonify(quote)
 
 @app.route('/api/quotes')
 def get_quotes():
     category = request.args.get('category')
     quotes = load_quotes()
+    is_premium = session.get('is_premium', False)
     
     if category:
-        filtered_quotes = [quote for quote in quotes if quote['category'] == category]
-        return jsonify(filtered_quotes)
+        filtered_quotes = [quote for quote in quotes if quote['category'] == category and (not quote['premium'] or is_premium)]
     else:
-        return jsonify(quotes)
+        filtered_quotes = [quote for quote in quotes if not quote['premium'] or is_premium]
+    
+    return jsonify(filtered_quotes)
 
 @app.route('/api/categories')
 def get_categories():
@@ -56,6 +62,11 @@ def remove_favorite():
 @app.route('/api/favorites')
 def get_favorites():
     return jsonify(favorite_quotes)
+
+@app.route('/api/toggle-premium', methods=['POST'])
+def toggle_premium():
+    session['is_premium'] = not session.get('is_premium', False)
+    return jsonify({"is_premium": session['is_premium']})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

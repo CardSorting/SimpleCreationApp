@@ -2,51 +2,61 @@
     {
         "text": "The only way to do great work is to love what you do.",
         "author": "Steve Jobs",
-        "category": "inspirational"
+        "category": "inspirational",
+        "premium": false
     },
     {
         "text": "Life is what happens when you're busy making other plans.",
         "author": "John Lennon",
-        "category": "life"
+        "category": "life",
+        "premium": false
     },
     {
         "text": "The future belongs to those who believe in the beauty of their dreams.",
         "author": "Eleanor Roosevelt",
-        "category": "inspirational"
+        "category": "inspirational",
+        "premium": false
     },
     {
         "text": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
         "author": "Winston Churchill",
-        "category": "motivational"
+        "category": "motivational",
+        "premium": false
     },
     {
         "text": "In the end, it's not the years in your life that count. It's the life in your years.",
         "author": "Abraham Lincoln",
-        "category": "life"
+        "category": "life",
+        "premium": false
     },
     {
         "text": "The greatest glory in living lies not in never falling, but in rising every time we fall.",
         "author": "Nelson Mandela",
-        "category": "motivational"
+        "category": "motivational",
+        "premium": true
     },
     {
         "text": "The way to get started is to quit talking and begin doing.",
         "author": "Walt Disney",
-        "category": "inspirational"
+        "category": "inspirational",
+        "premium": true
     },
     {
         "text": "Your time is limited, don't waste it living someone else's life.",
         "author": "Steve Jobs",
-        "category": "life"
+        "category": "life",
+        "premium": true
     },
     {
         "text": "If life were predictable it would cease to be life, and be without flavor.",
         "author": "Eleanor Roosevelt",
-        "category": "life"
+        "category": "life",
+        "premium": false
     },
     {
         "text": "Spread love everywhere you go. Let no one ever come to you without leaving happier.",
         "author": "Mother Teresa",
-        "category": "inspirational"
+        "category": "inspirational",
+        "premium": true
     }
 ]
